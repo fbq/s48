@@ -1,4 +1,4 @@
-module Main where
+module Parser where
 import System.Environment
 import Text.ParserCombinators.Parsec hiding(spaces)
 import Control.Monad
@@ -66,7 +66,3 @@ parseNumber =
 parseExpr :: Parser LispVal
 parseExpr = parseAtom <|> parseString <|> parseNumber
 
-main :: IO ()
-main = do 
-	args <- getArgs
-	putStrLn (readExpr (args !! 0))	
